@@ -1,0 +1,58 @@
+﻿<Window x:Class="second.Views.CrudGroupsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:second.Views"
+        mc:Ignorable="d"
+        Title="CrudGroupsWindow" Height="300" Width="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+               Content="Редагуємо товарну групу"
+               FontSize="20" FontWeight="DemiBold"
+               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="1" Grid.Column="0" 
+               Content="ID:" 
+               HorizontalAlignment="Right"  VerticalAlignment="Center"/>
+        <TextBox Grid.Row="1" Grid.Column="1"  Margin="0 0 10 0" Padding="0 2 0 2"
+                 Text="{Binding Path=Id}" x:Name="IdBox"
+                 IsEnabled="False" VerticalAlignment="Center"/>
+        <Label Grid.Row="2" Grid.Column="0" 
+               Content="Name:"
+               HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="2" Grid.Column="1"   Margin="0 0 10 0" Padding="0 2 0 2"
+                 Text="{Binding Path=Name}"  VerticalAlignment="Center"
+                 x:Name="NameBox" TextChanged="NameBox_TextChanged"/>
+        <Label Grid.Row="3" Grid.Column="0" 
+               Content="Description:" 
+               HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="3" Grid.Column="1"   Margin="0 0 10 0" Padding="0 2 0 2"
+                 Text="{Binding Path=Description}" x:Name="DescriptionBox"
+                 MaxLines="3" TextWrapping="Wrap" VerticalAlignment="Center" TextChanged="DescriptionBox_TextChanged"/>
+        <Label Grid.Row="4" Grid.Column="0" 
+               Content="Image:" 
+               HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="4" Grid.Column="1"   Margin="0 0 10 0" Padding="0 2 0 2"
+                 Text="{Binding Path=Picture}"  VerticalAlignment="Center"
+                 x:Name="PictureBox" TextChanged="PictureBox_TextChanged"/>
+        <UniformGrid  Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+                      Columns="4" >
+            <Button Content="Close"  Margin="20 10" Padding="0 0 0 2" x:Name="CloseButton" Click="CloseButton_Click"/>
+            <Button Content="Save"   Margin="20 10" Padding="0 0 0 2" x:Name="SaveButton" Click="SaveButton_Click" IsEnabled="{Binding enabled}"/>
+            <Button Content="Delete" Margin="20 10" Padding="0 0 0 2" x:Name="DeleteButton" Click="DeleteButton_Click"/>
+            <Button Content="Restore" Margin="20 10" Padding="0 0 0 2" x:Name="RestoreButton" Click="RestoreButton_Click"/>
+        </UniformGrid>
+    </Grid>
+</Window>
